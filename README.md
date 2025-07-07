@@ -62,14 +62,6 @@ Install essential packages for running the app:
 npm install express cors helmet dotenv winston
 ```
 
-#### 🛠️ Development Only
-
-Install packages required for development and TypeScript support:
-
-```bash
-npm install -D typescript ts-node-dev @types/node @types/express
-```
-
 ### Configure TypeScript
 
 Initialize a TypeScript configuration file by running:
@@ -79,3 +71,20 @@ npx tsc --init
 ```
 
 This will generate a `tsconfig.json` file in your project root, which you can customize to fit your project's needs.
+
+
+## 🛠️ Tools & Tech Stack
+
+| Type         | Tech                                                                 |
+|--------------|----------------------------------------------------------------------|
+| **Lang**     | TypeScript + Node.js (ESM style)                                     |
+| **Framework**| Express.js                                                           |
+| **Database** | MongoDB (Mongoose), MySQL (Prisma)                                   |
+| **Auth**     | JWT, bcrypt, Auth.js                                                 |
+| **Logger**   | Winston with log rotation                                            |
+| **Validation**| Zod / Yup                                                           |
+| **Testing**  | Jest, Supertest                                                      |
+| **Docker**   | Dockerfile + Compose                                                 |
+| **Dev Tools**| TSX, Prettier, ESLint, dotenv                                        |
+| **Monitoring**| Healthchecks, uptime, custom middleware                             |
+| **Bonus**    | Redis, BullMQ, WebSockets, Firebase, etc.                            |
