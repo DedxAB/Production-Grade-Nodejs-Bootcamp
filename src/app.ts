@@ -1,10 +1,10 @@
 import cors from 'cors';
 import dotenv from 'dotenv';
-import express from 'express';
+import express, { Request, Response } from 'express';
 import helmet from 'helmet';
 
+import authRoutes from './routes/auth.routes.js';
 import healthRoutes from './routes/health.routes.js';
-import userRoutes from './routes/user.routes.js';
 import { logger } from './utils/logger.js';
 
 dotenv.config();
@@ -21,9 +21,12 @@ app.use((req, res, next) => {
   next();
 });
 
+app.get('/', (_: Request, res: Response) => {
+  res.send('🌟 BudgetBuddy API Running');
+});
 app.use('/api/health', healthRoutes);
-app.use("/api/users", userRoutes);
+app.use('/api/auth', authRoutes);
 
-app.use('*', (_, res) => {
+app.use('*', (_, res: Response) => {
   res.status(404).json({ message: 'Route not found' });
 });

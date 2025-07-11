@@ -1,0 +1,38 @@
+[2025-07-12 01:46:57] INFO: 📦 MongoDB Connected: localhost
+[2025-07-12 01:46:57] INFO: 🚀 Server running on http://localhost:3000
+[2025-07-12 01:46:57] INFO: GET /
+[2025-07-12 01:46:57] INFO: GET /favicon.ico
+[2025-07-12 01:47:04] INFO: GET /api/users
+[2025-07-12 01:58:31] INFO: 📦 MongoDB Connected: localhost
+[2025-07-12 01:58:31] INFO: 🚀 Server running on http://localhost:3000
+[2025-07-12 01:58:33] INFO: GET /
+[2025-07-12 01:59:57] INFO: 📦 MongoDB Connected: localhost
+[2025-07-12 01:59:57] INFO: 🚀 Server running on http://localhost:3000
+[2025-07-12 02:00:33] INFO: GET /api/users
+[2025-07-12 02:00:38] INFO: GET /api/users
+[2025-07-12 02:00:47] INFO: POST /api/users
+[2025-07-12 03:14:29] INFO: 📦 MongoDB Connected: localhost
+[2025-07-12 03:14:29] INFO: 🚀 Server running on http://localhost:3000
+[2025-07-12 03:14:46] INFO: 📦 MongoDB Connected: localhost
+[2025-07-12 03:14:46] INFO: 🚀 Server running on http://localhost:3000
+[2025-07-12 03:14:54] INFO: 📦 MongoDB Connected: localhost
+[2025-07-12 03:14:54] INFO: 🚀 Server running on http://localhost:3000
+[2025-07-12 03:14:55] INFO: 📦 MongoDB Connected: localhost
+[2025-07-12 03:14:55] INFO: 🚀 Server running on http://localhost:3000
+[2025-07-12 03:15:00] INFO: 📦 MongoDB Connected: localhost
+[2025-07-12 03:15:00] INFO: 🚀 Server running on http://localhost:3000
+[2025-07-12 03:15:49] INFO: GET /api/health
+[2025-07-12 03:15:49] INFO: Health check pinged
+[2025-07-12 03:19:50] INFO: POST /api/auth/register
+[2025-07-12 03:20:32] INFO: 📦 MongoDB Connected: localhost
+[2025-07-12 03:20:32] INFO: 🚀 Server running on http://localhost:3000
+[2025-07-12 03:20:38] INFO: POST /api/auth/register
+[2025-07-12 03:21:56] INFO: POST /api/auth/login
+[2025-07-12 03:22:11] INFO: 📦 MongoDB Connected: localhost
+[2025-07-12 03:22:11] INFO: 🚀 Server running on http://localhost:3000
+[2025-07-12 03:22:33] INFO: POST /api/auth/login
+[2025-07-12 03:23:24] INFO: 📦 MongoDB Connected: localhost
+[2025-07-12 03:23:24] INFO: 🚀 Server running on http://localhost:3000
+[2025-07-12 03:23:52] INFO: POST /api/auth/login
+[2025-07-12 03:25:03] INFO: GET /api/health
+[2025-07-12 03:25:03] INFO: Health check pinged
