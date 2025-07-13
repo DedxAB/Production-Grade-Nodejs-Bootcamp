@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import express, { Request, Response } from 'express';
 import helmet from 'helmet';
 
+import { globalErrorHandler } from './middlewares/globalError.middleware.js';
 import authRoutes from './routes/auth.routes.js';
 import healthRoutes from './routes/health.routes.js';
 import { logger } from './utils/logger.js';
@@ -21,12 +22,14 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get('/', (_: Request, res: Response) => {
+app.get('/api', (_req: Request, res: Response) => {
   res.send('🌟 BudgetBuddy API Running');
 });
 app.use('/api/health', healthRoutes);
 app.use('/api/auth', authRoutes);
 
-app.use('*', (_, res: Response) => {
+app.use('*', (_req: Request, res: Response) => {
   res.status(404).json({ message: 'Route not found' });
 });
+
+app.use(globalErrorHandler);
