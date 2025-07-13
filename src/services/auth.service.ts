@@ -8,6 +8,7 @@ type RegisterUserParams = {
   name: string;
   email: string;
   password: string;
+  role?: 'user' | 'admin'; // Optional role, default is 'user'
 };
 
 type LoginUserParams = {
@@ -30,8 +31,9 @@ export async function registerUser({
     name,
     email,
     password: hashedPassword,
+    role: 'user', // Default role is 'user'
   });
-  return { id: user._id, name: user.name, email: user.email };
+  return { id: user._id, name: user.name, email: user.email, role: user.role };
 }
 
 export async function loginUser({ email, password }: LoginUserParams) {
@@ -56,6 +58,10 @@ export async function loginUser({ email, password }: LoginUserParams) {
     expiresIn: jwtExpiry as SignOptions['expiresIn'],
   };
 
-  const token = jwt.sign({ id: user._id }, jwtSecret, signOptions);
+  const token = jwt.sign(
+    { id: user._id, role: user.role },
+    jwtSecret,
+    signOptions
+  );
   return token;
 }

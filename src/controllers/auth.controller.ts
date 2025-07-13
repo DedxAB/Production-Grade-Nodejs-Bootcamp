@@ -10,5 +10,8 @@ export const register = catchAsync(async (req: Request, res: Response) => {
 
 export const login = catchAsync(async (req: Request, res: Response) => {
   const token = await loginUser(req.body);
-  res.json({ token });
+  res.status(200).json({
+    status: 'success',
+    token,
+  });
 });

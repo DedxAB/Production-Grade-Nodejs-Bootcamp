@@ -6,6 +6,7 @@ import helmet from 'helmet';
 import { globalErrorHandler } from './middlewares/globalError.middleware.js';
 import authRoutes from './routes/auth.routes.js';
 import healthRoutes from './routes/health.routes.js';
+import userRoutes from './routes/user.routes.js';
 import { logger } from './utils/logger.js';
 
 dotenv.config();
@@ -27,6 +28,7 @@ app.get('/api', (_req: Request, res: Response) => {
 });
 app.use('/api/health', healthRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/api/users', userRoutes);
 
 app.use('*', (_req: Request, res: Response) => {
   res.status(404).json({ message: 'Route not found' });
