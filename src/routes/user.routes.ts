@@ -5,7 +5,7 @@ import { protect, restrictTo } from '../middlewares/auth.middleware';
 
 const router = Router();
 
-router.get('/', protect, restrictTo('admin'), getAllUsers);
+router.get('/all', protect, restrictTo('admin'), getAllUsers);
 router.get('/me', protect, getCurrentUser);
 
 export default router;

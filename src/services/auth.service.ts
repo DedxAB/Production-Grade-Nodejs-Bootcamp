@@ -3,24 +3,16 @@ import jwt, { SignOptions } from 'jsonwebtoken';
 
 import { UserModel } from '../models/user.model';
 import { AppError } from '../utils/appError';
-
-type RegisterUserParams = {
-  name: string;
-  email: string;
-  password: string;
-  role?: 'user' | 'admin'; // Optional role, default is 'user'
-};
-
-type LoginUserParams = {
-  email: string;
-  password: string;
-};
+import {
+  LoginUserInput,
+  RegisterUserInput,
+} from '../validations/user.validation';
 
 export async function registerUser({
   name,
   email,
   password,
-}: RegisterUserParams) {
+}: RegisterUserInput) {
   const existing = await UserModel.findOne({ email });
   if (existing) {
     throw new AppError('User already exists', 409);
@@ -36,7 +28,7 @@ export async function registerUser({
   return { id: user._id, name: user.name, email: user.email, role: user.role };
 }
 
-export async function loginUser({ email, password }: LoginUserParams) {
+export async function loginUser({ email, password }: LoginUserInput) {
   const user = await UserModel.findOne({ email }).select('+password');
   if (!user) {
     throw new AppError('User not found', 404);
