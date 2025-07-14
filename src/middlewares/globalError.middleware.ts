@@ -1,7 +1,7 @@
 import { ErrorRequestHandler } from 'express';
 
-import { AppError } from '../utils/appError';
-import { logger } from '../utils/logger';
+import { AppError } from '../utils/appError.js';
+import { logger } from '../utils/logger.js';
 
 export const globalErrorHandler: ErrorRequestHandler = (
   err,

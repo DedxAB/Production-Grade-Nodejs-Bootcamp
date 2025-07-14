@@ -1,12 +1,12 @@
 import bcrypt from 'bcrypt';
 import jwt, { SignOptions } from 'jsonwebtoken';
 
-import { UserModel } from '../models/user.model';
-import { AppError } from '../utils/appError';
+import { UserModel } from '../models/user.model.js';
+import { AppError } from '../utils/appError.js';
 import {
   LoginUserInput,
   RegisterUserInput,
-} from '../validations/user.validation';
+} from '../validations/user.validation.js';
 
 export async function registerUser({
   name,

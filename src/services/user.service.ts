@@ -1,5 +1,5 @@
-import { UserModel } from '../models/user.model';
-import { AppError } from '../utils/appError';
+import { UserModel } from '../models/user.model.js';
+import { AppError } from '../utils/appError.js';
 
 export const getAllUsersService = async () => {
   const allUsers = await UserModel.find().select('-password -__v');

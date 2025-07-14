@@ -1,7 +1,7 @@
 import { Router } from 'express';
 
-import { getAllUsers, getCurrentUser } from '../controllers/user.controller';
-import { protect, restrictTo } from '../middlewares/auth.middleware';
+import { getAllUsers, getCurrentUser } from '../controllers/user.controller.js';
+import { protect, restrictTo } from '../middlewares/auth.middleware.js';
 
 const router = Router();
 
