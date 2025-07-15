@@ -6,8 +6,8 @@ import {
 } from '../services/user.service.js';
 import { catchAsync } from '../utils/catchAsync.js';
 
-export const getAllUsers = catchAsync(async (_req: Request, res: Response) => {
-  const allUsers = await getAllUsersService();
+export const getAllUsers = catchAsync(async (req: Request, res: Response) => {
+  const allUsers = await getAllUsersService(req.query);
   res.status(200).json({
     status: 'success',
     data: allUsers,

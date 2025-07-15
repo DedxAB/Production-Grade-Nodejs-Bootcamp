@@ -1,8 +1,15 @@
 import { UserModel } from '../models/user.model.js';
+import { APIFeatures } from '../utils/apiFeatures.js';
 import { AppError } from '../utils/appError.js';
 
-export const getAllUsersService = async () => {
-  const allUsers = await UserModel.find().select('-password -__v');
+export const getAllUsersService = async (queryOptions: any) => {
+  const features = new APIFeatures(UserModel.find(), queryOptions)
+    .search('name', 'email')
+    .filter()
+    .sort()
+    .limitFields()
+    .paginate();
+  const allUsers = await features.query.select('-password -__v');
   return allUsers;
 };
 
