@@ -2,6 +2,8 @@ import fs from 'fs';
 import winston from 'winston';
 import DailyRotateFile from 'winston-daily-rotate-file';
 
+import { config } from '../config/index.js';
+
 const logDir = 'logs';
 if (!fs.existsSync(logDir)) {
   fs.mkdirSync(logDir);
@@ -37,7 +39,7 @@ export const logger = winston.createLogger({
   ],
 });
 
-if (process.env.NODE_ENV !== 'production') {
+if (config.NODE_ENV !== 'production') {
   logger.add(
     new winston.transports.Console({ format: winston.format.simple() })
   );

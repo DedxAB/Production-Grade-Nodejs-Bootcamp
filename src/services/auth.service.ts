@@ -7,6 +7,7 @@ import {
   LoginUserInput,
   RegisterUserInput,
 } from '../validations/user.validation.js';
+import { config } from '../config/index.js';
 
 export async function registerUser({
   name,
@@ -39,8 +40,8 @@ export async function loginUser({ email, password }: LoginUserInput) {
     throw new AppError('Invalid credentials', 401);
   }
 
-  const jwtSecret = process.env.JWT_SECRET;
-  const jwtExpiry = process.env.JWT_EXPIRES_IN;
+  const jwtSecret = config.JWT_SECRET;
+  const jwtExpiry = config.JWT_EXPIRES_IN;
 
   if (!jwtSecret || !jwtExpiry) {
     throw new AppError('JWT_SECRET or JWT_EXPIRES_IN not defined');

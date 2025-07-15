@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
 import jwt from 'jsonwebtoken';
 
+import { config } from '../config/index.js';
 import { IUser, UserModel } from '../models/user.model.js';
 import { AppError } from '../utils/appError.js';
 import { logger } from '../utils/logger.js';
@@ -22,7 +23,7 @@ export async function protect(
       return next(new AppError('You are not logged in', 401));
     }
 
-    const decoded = jwt.verify(token, process.env.JWT_SECRET!) as {
+    const decoded = jwt.verify(token, config.JWT_SECRET!) as {
       id: string;
     };
 

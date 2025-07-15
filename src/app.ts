@@ -1,5 +1,4 @@
 import cors from 'cors';
-import dotenv from 'dotenv';
 import express, { Request, Response } from 'express';
 import helmet from 'helmet';
 
@@ -9,16 +8,14 @@ import healthRoutes from './routes/health.routes.js';
 import userRoutes from './routes/user.routes.js';
 import { logger } from './utils/logger.js';
 
-dotenv.config();
-
 export const app = express();
 
-// Middleware setup
 app.use(cors());
 app.use(helmet());
 app.use(express.json());
+app.disable('x-powered-by');
 
-app.use((req, res, next) => {
+app.use((req, _res, next) => {
   logger.info(`${req.method} ${req.url}`);
   next();
 });
