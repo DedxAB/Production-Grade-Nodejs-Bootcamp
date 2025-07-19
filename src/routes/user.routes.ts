@@ -6,7 +6,9 @@ import { restrictTo } from '../middlewares/rbac.middleware.js';
 
 const router = Router();
 
-router.get('/all', protect, restrictTo('admin'), getAllUsers);
-router.get('/me', protect, getCurrentUser);
+router.use(protect);
+
+router.get('/all', restrictTo('admin'), getAllUsers);
+router.get('/me', getCurrentUser);
 
 export default router;

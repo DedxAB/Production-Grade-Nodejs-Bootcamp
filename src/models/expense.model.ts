@@ -31,7 +31,7 @@ const expenseSchema = new Schema<ExpenseDocument>(
       ],
       default: 'other',
     },
-    date: { type: Date, required: true },
+    date: { type: Date, required: true, default: Date.now },
   },
   { timestamps: true }
 );

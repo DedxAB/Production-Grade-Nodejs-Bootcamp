@@ -4,9 +4,7 @@ import helmet from 'helmet';
 import swaggerUi from 'swagger-ui-express';
 
 import { globalErrorHandler } from './middlewares/globalError.middleware.js';
-import authRoutes from './routes/auth.routes.js';
-import healthRoutes from './routes/health.routes.js';
-import userRoutes from './routes/user.routes.js';
+import apiRouter from './routes/api.routes.js';
 import { logger } from './utils/logger.js';
 import { swaggerSpec } from './utils/swagger.js';
 
@@ -23,12 +21,7 @@ app.use((req, _res, next) => {
   next();
 });
 
-app.get('/api', (_req: Request, res: Response) => {
-  res.send('🌟 BudgetBuddy API Running');
-});
-app.use('/api/health', healthRoutes);
-app.use('/api/auth', authRoutes);
-app.use('/api/users', userRoutes);
+app.use('/api/v1', apiRouter);
 
 app.use('*', (_req: Request, res: Response) => {
   res.status(404).json({ message: 'Route not found' });
