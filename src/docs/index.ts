@@ -1,5 +1,5 @@
-import { authDocs } from './auth.docs';
-import { userDocs } from './user.docs';
+import { authDocs } from './auth.docs.js';
+import { userDocs } from './user.docs.js';
 
 export const openApiDocs = {
   ...userDocs,

@@ -1,6 +1,7 @@
 import swaggerJSDoc from 'swagger-jsdoc';
 
-import { openApiDocs } from '../docs';
+import { openApiDocs } from '../docs/index.js';
+import { config } from '../config/index.js';
 
 export const swaggerSpec = swaggerJSDoc({
   definition: {
@@ -11,7 +12,7 @@ export const swaggerSpec = swaggerJSDoc({
       description: 'API documentation for BudgetBuddy backend',
     },
     paths: openApiDocs,
-    servers: [{ url: 'http://localhost:3000/api' }],
+    servers: [{ url: `http://localhost:3000${config.ROOT_API}` }],
     components: {
       securitySchemes: {
         bearerAuth: {
