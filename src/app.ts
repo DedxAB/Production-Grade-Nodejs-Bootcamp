@@ -3,6 +3,7 @@ import express, { Request, Response } from 'express';
 import helmet from 'helmet';
 import swaggerUi from 'swagger-ui-express';
 
+import { config } from './config/index.js';
 import { globalErrorHandler } from './middlewares/globalError.middleware.js';
 import apiRouter from './routes/api.routes.js';
 import { logger } from './utils/logger.js';
@@ -21,7 +22,7 @@ app.use((req, _res, next) => {
   next();
 });
 
-app.use('/api/v1', apiRouter);
+app.use(config.ROOT_API, apiRouter);
 
 app.use('*', (_req: Request, res: Response) => {
   res.status(404).json({ message: 'Route not found' });
